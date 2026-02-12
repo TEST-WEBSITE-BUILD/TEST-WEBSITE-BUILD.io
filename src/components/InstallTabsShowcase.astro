@@ -1,10 +1,10 @@
 ---
 const installOptions = [
-  { id: 'curl', label: 'curl', command: 'curl -fsSL https://opencode.ai/install | bash' },
-  { id: 'npm', label: 'npm', command: 'npm install -g opencode-ai && opencode' },
-  { id: 'bun', label: 'bun', command: 'bun add -g opencode-ai && opencode' },
-  { id: 'brew', label: 'brew', command: 'brew install opencode-ai/opencode/opencode' },
-  { id: 'paru', label: 'paru', command: 'paru -S opencode-ai-bin' },
+  { id: 'clone', label: 'clone', command: 'git clone https://github.com/NOVA-ALLRounder/main.git' },
+  { id: 'setup', label: 'setup', command: 'cd main/core && cp .env.example .env' },
+  { id: 'build', label: 'build', command: 'cargo build --release' },
+  { id: 'test', label: 'test', command: 'cargo test' },
+  { id: 'release', label: 'release', command: './scripts/build_release.sh' },
 ];
 ---
 
@@ -12,9 +12,9 @@ const installOptions = [
   <div class="max-w-6xl mx-auto">
     <div class="space-y-2 mb-8">
       <p class="text-body-lg text-neutral-300">
-        무료 모델이 포함되어 있으며, 어떤 제공자의 모델이든 연결 가능합니다.
+        지금 웹사이트로 빌드 중인 프로젝트는 NOVA-ALLRounder/main 입니다.
       </p>
-      <p class="text-body-lg text-neutral-300">Claude, GPT, Gemini 등을 포함합니다.</p>
+      <p class="text-body-lg text-neutral-300">clone, 환경설정, 빌드, 테스트, 릴리스까지 한 흐름으로 확인할 수 있습니다.</p>
     </div>
 
     <div
@@ -70,66 +70,63 @@ const installOptions = [
       <div class="grid lg:grid-cols-[1fr_320px]">
         <div class="border-b lg:border-b-0 lg:border-r border-white/10">
           <div class="p-4 md:p-5 text-[12px] md:text-[13px] leading-6 text-neutral-500 font-mono">
-            <p>Create migration to add <span class="text-neutral-300">date_of_birth</span> column to users table</p>
-            <p>Update User model with <span class="text-neutral-300">date_of_birth</span> fillable and cast</p>
-            <p>Update createNewUser action with date_of_birth validation (18+ years)</p>
-            <p class="text-[#8fd5a6]">Update registration form (register.tsx) with date of birth field</p>
-            <p>Update UserFactory with date_of_birth</p>
-            <p>Update registration tests</p>
-            <p>Run migrations and tests</p>
+            <p>Clone <span class="text-neutral-300">NOVA-ALLRounder/main</span> repository</p>
+            <p>Open <span class="text-neutral-300">core/.env</span> and set OPENAI_API_KEY</p>
+            <p>Build core binary with <span class="text-neutral-300">cargo build --release</span></p>
+            <p class="text-[#8fd5a6]">Run core process: <span class="text-[#8fd5a6]">./target/release/core</span></p>
+            <p>Run validation tests with <span class="text-neutral-300">cargo test</span></p>
+            <p>Build desktop bundle via <span class="text-neutral-300">./scripts/build_release.sh</span></p>
+            <p>Deploy web/docs module after release artifacts are ready</p>
           </div>
 
           <div class="p-4 md:p-5 border-t border-white/10">
             <div class="relative rounded-md border border-white/10 bg-[#08090c] overflow-hidden">
               <div class="absolute inset-y-0 left-[46%] w-[22%] bg-[#55d2ff22] border-y border-x border-[#55d2ff66]"></div>
               <div class="absolute left-0 right-0 top-[47%] h-[2px] bg-[#9b6bff33]"></div>
-              <pre class="relative m-0 p-4 text-[11px] md:text-xs leading-6 text-neutral-500 overflow-x-auto"><code>{` 44   />
- 45   </div>
- 46   <div className="grid gap-2">
- 47     <Label htmlFor="date_of_birth">
- 48       Date of birth
- 49     </Label>
- 50     <Input
- 51       id="date_of_birth"
- 52       type="date"
- 53       required
- 54       tabIndex={2}
- 55       autoComplete="bday"
- 56       name="date_of_birth"
- 57     />
- 58   </div>
- 59   <div className="grid gap-2">
- 60     <Label htmlFor="email">Email</Label>`}</code></pre>
+              <pre class="relative m-0 p-4 text-[11px] md:text-xs leading-6 text-neutral-500 overflow-x-auto"><code>{`core/src/
+├── main.rs
+├── analyzer.rs
+├── db.rs
+├── policy.rs
+├── executor.rs
+├── llm_gateway.rs
+├── notifier.rs
+├── monitor.rs
+├── applescript.rs
+├── n8n_api.rs
+├── visual_driver.rs
+└── macos/`}</code></pre>
             </div>
           </div>
         </div>
 
         <aside class="p-4 md:p-5 bg-[#0f1116]">
           <h3 class="text-neutral-100 text-sm md:text-base font-semibold mb-4">
-            Implementing signup age-validate field
+            Building NOVA-ALLRounder/main
           </h3>
           <div class="space-y-4 text-xs md:text-sm">
             <div>
-              <p class="text-neutral-500 mb-1">Context</p>
-              <p class="text-neutral-400">33,000 tokens</p>
-              <p class="text-neutral-400">17% used</p>
-              <p class="text-neutral-400">$0.47 spent</p>
+              <p class="text-neutral-500 mb-1">Repository</p>
+              <p class="text-neutral-300">NOVA-ALLRounder/main</p>
+              <p class="text-neutral-400">Branch: main</p>
+              <p class="text-neutral-400">Rust Native Agent</p>
             </div>
             <div>
-              <p class="text-neutral-500 mb-1">MCP</p>
+              <p class="text-neutral-500 mb-1">Modules</p>
               <ul class="space-y-1 text-neutral-300">
-                <li>• nerd Connected</li>
-                <li>• laravel-boost Connected</li>
+                <li>• core (Rust)</li>
+                <li>• desktop (Tauri)</li>
+                <li>• web/docs</li>
               </ul>
             </div>
             <div>
-              <p class="text-neutral-500 mb-1">TODO</p>
+              <p class="text-neutral-500 mb-1">Pipeline</p>
               <ul class="space-y-1 text-neutral-400">
-                <li>[x] Migration 추가</li>
-                <li>[x] Model 업데이트</li>
-                <li>[x] createNewUser 수정</li>
-                <li class="text-[#8fd5a6]">[ ] register.tsx 수정</li>
-                <li>[ ] 테스트 및 마이그레이션 실행</li>
+                <li>[x] clone repository</li>
+                <li>[x] configure .env</li>
+                <li>[x] build core binary</li>
+                <li class="text-[#8fd5a6]">[ ] run release bundle script</li>
+                <li>[ ] publish website updates</li>
               </ul>
             </div>
           </div>
