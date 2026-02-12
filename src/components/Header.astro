@@ -52,18 +52,18 @@ const isActive = (href: string) => {
   role="banner"
 >
   <nav
-    class="max-w-[1360px] mx-auto px-6 h-24 flex items-center justify-between"
+    class="max-w-[1120px] mx-auto px-5 h-[76px] flex items-center justify-between"
     aria-label="Main Navigation"
   >
     <a
       href={withBase('/')}
       class="flex items-center leading-none tracking-[-0.045em] transition-opacity hover:opacity-80"
     >
-      <span class="font-black text-4xl md:text-5xl text-neutral-500">NO</span>
-      <span class="font-black text-4xl md:text-5xl text-neutral-900">VA</span>
+      <span class="font-black text-[2rem] md:text-[2.35rem] text-neutral-500">NO</span>
+      <span class="font-black text-[2rem] md:text-[2.35rem] text-neutral-900">VA</span>
     </a>
 
-    <ul class="hidden lg:flex items-center gap-14" role="list">
+    <ul class="hidden lg:flex items-center gap-8" role="list">
       {navItems.map((item) => (
         <li>
           <a
@@ -71,7 +71,7 @@ const isActive = (href: string) => {
             target={item.external ? '_blank' : undefined}
             rel={item.external ? 'noopener noreferrer' : undefined}
             class:list={[
-              'py-2 text-[2rem] leading-none transition-colors',
+              'py-2 text-[1.05rem] leading-none transition-colors',
               isActive(item.href)
                 ? 'text-neutral-900'
                 : 'text-neutral-900 hover:text-neutral-700',
@@ -89,10 +89,10 @@ const isActive = (href: string) => {
       <a
         href={withBase('/docs/getting-started')}
         class:list={[
-          'inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-[#1f1d1f] text-white text-[2rem] leading-none hover:bg-[#2a272a] transition-colors',
+          'inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1f1d1f] text-white text-[1.05rem] leading-none hover:bg-[#2a272a] transition-colors',
         ]}
       >
-        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v11m0 0l4-4m-4 4l-4-4M4 20h16" />
         </svg>
         <span>무료</span>
@@ -160,7 +160,7 @@ const isActive = (href: string) => {
   </div>
 </header>
 
-<div class="h-24" aria-hidden="true"></div>
+<div class="h-[76px]" aria-hidden="true"></div>
 
 <script>
   const toggle = document.getElementById('mobile-menu-toggle');
