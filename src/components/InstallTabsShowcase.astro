@@ -1,0 +1,222 @@
+---
+const installOptions = [
+  { id: 'curl', label: 'curl', command: 'curl -fsSL https://opencode.ai/install | bash' },
+  { id: 'npm', label: 'npm', command: 'npm install -g opencode-ai && opencode' },
+  { id: 'bun', label: 'bun', command: 'bun add -g opencode-ai && opencode' },
+  { id: 'brew', label: 'brew', command: 'brew install opencode-ai/opencode/opencode' },
+  { id: 'paru', label: 'paru', command: 'paru -S opencode-ai-bin' },
+];
+---
+
+<section class="animate-on-scroll">
+  <div class="max-w-6xl mx-auto">
+    <div class="space-y-2 mb-8">
+      <p class="text-body-lg text-neutral-300">
+        무료 모델이 포함되어 있으며, 어떤 제공자의 모델이든 연결 가능합니다.
+      </p>
+      <p class="text-body-lg text-neutral-300">Claude, GPT, Gemini 등을 포함합니다.</p>
+    </div>
+
+    <div
+      data-install-tabs
+      class="install-shell rounded-lg border border-white/10 bg-[#111318] overflow-hidden"
+    >
+      <div
+        role="tablist"
+        aria-label="Install options"
+        class="install-tablist flex items-center gap-8 px-6 md:px-8 border-b border-white/10 bg-[#14161b]"
+      >
+        {installOptions.map((item, index) => (
+          <button
+            type="button"
+            role="tab"
+            class:list={[
+              'install-tab relative py-5 text-xl md:text-[2rem] leading-none transition-colors',
+              index === 0 ? 'text-neutral-100' : 'text-neutral-500 hover:text-neutral-300',
+            ]}
+            aria-selected={index === 0 ? 'true' : 'false'}
+            data-active={index === 0 ? 'true' : 'false'}
+            data-command={item.command}
+            data-tab-id={item.id}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="install-command-row flex items-center justify-between gap-4 px-6 md:px-8 py-7 md:py-8">
+        <code
+          data-install-command
+          class="install-command text-xl md:text-[2rem] leading-tight text-neutral-200 font-medium overflow-x-auto whitespace-nowrap"
+        >
+          {installOptions[0].command}
+        </code>
+        <button
+          type="button"
+          data-install-copy
+          class="install-copy inline-flex items-center justify-center h-10 w-10 rounded-md text-neutral-500 hover:text-neutral-200 transition-colors flex-shrink-0"
+          aria-label="Copy install command"
+          title="Copy install command"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="1.5"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="1.5"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-10 rounded-lg border border-white/10 overflow-hidden bg-[#0b0c10]">
+      <div class="grid lg:grid-cols-[1fr_320px]">
+        <div class="border-b lg:border-b-0 lg:border-r border-white/10">
+          <div class="p-4 md:p-5 text-[12px] md:text-[13px] leading-6 text-neutral-500 font-mono">
+            <p>Create migration to add <span class="text-neutral-300">date_of_birth</span> column to users table</p>
+            <p>Update User model with <span class="text-neutral-300">date_of_birth</span> fillable and cast</p>
+            <p>Update createNewUser action with date_of_birth validation (18+ years)</p>
+            <p class="text-[#8fd5a6]">Update registration form (register.tsx) with date of birth field</p>
+            <p>Update UserFactory with date_of_birth</p>
+            <p>Update registration tests</p>
+            <p>Run migrations and tests</p>
+          </div>
+
+          <div class="p-4 md:p-5 border-t border-white/10">
+            <div class="relative rounded-md border border-white/10 bg-[#08090c] overflow-hidden">
+              <div class="absolute inset-y-0 left-[46%] w-[22%] bg-[#55d2ff22] border-y border-x border-[#55d2ff66]"></div>
+              <div class="absolute left-0 right-0 top-[47%] h-[2px] bg-[#9b6bff33]"></div>
+              <pre class="relative m-0 p-4 text-[11px] md:text-xs leading-6 text-neutral-500 overflow-x-auto"><code>{` 44   />
+ 45   </div>
+ 46   <div className="grid gap-2">
+ 47     <Label htmlFor="date_of_birth">
+ 48       Date of birth
+ 49     </Label>
+ 50     <Input
+ 51       id="date_of_birth"
+ 52       type="date"
+ 53       required
+ 54       tabIndex={2}
+ 55       autoComplete="bday"
+ 56       name="date_of_birth"
+ 57     />
+ 58   </div>
+ 59   <div className="grid gap-2">
+ 60     <Label htmlFor="email">Email</Label>`}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <aside class="p-4 md:p-5 bg-[#0f1116]">
+          <h3 class="text-neutral-100 text-sm md:text-base font-semibold mb-4">
+            Implementing signup age-validate field
+          </h3>
+          <div class="space-y-4 text-xs md:text-sm">
+            <div>
+              <p class="text-neutral-500 mb-1">Context</p>
+              <p class="text-neutral-400">33,000 tokens</p>
+              <p class="text-neutral-400">17% used</p>
+              <p class="text-neutral-400">$0.47 spent</p>
+            </div>
+            <div>
+              <p class="text-neutral-500 mb-1">MCP</p>
+              <ul class="space-y-1 text-neutral-300">
+                <li>• nerd Connected</li>
+                <li>• laravel-boost Connected</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-neutral-500 mb-1">TODO</p>
+              <ul class="space-y-1 text-neutral-400">
+                <li>[x] Migration 추가</li>
+                <li>[x] Model 업데이트</li>
+                <li>[x] createNewUser 수정</li>
+                <li class="text-[#8fd5a6]">[ ] register.tsx 수정</li>
+                <li>[ ] 테스트 및 마이그레이션 실행</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .install-tab[data-active='true']::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: #f5ee9b;
+  }
+
+  .install-command {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: -0.01em;
+  }
+
+  .install-copy:focus-visible {
+    outline: 2px solid #f5ee9b;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .install-tablist {
+      gap: 1.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .install-tablist::-webkit-scrollbar {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const groups = document.querySelectorAll('[data-install-tabs]');
+
+  groups.forEach((group) => {
+    const tabs = Array.from(group.querySelectorAll('.install-tab'));
+    const commandEl = group.querySelector('[data-install-command]');
+    const copyBtn = group.querySelector('[data-install-copy]');
+
+    if (!tabs.length || !commandEl || !copyBtn) return;
+
+    const activateTab = (tab) => {
+      tabs.forEach((t) => {
+        const active = t === tab;
+        t.setAttribute('aria-selected', String(active));
+        t.setAttribute('data-active', String(active));
+        t.classList.toggle('text-neutral-100', active);
+        t.classList.toggle('text-neutral-500', !active);
+      });
+      const nextCommand = tab.getAttribute('data-command');
+      if (nextCommand) commandEl.textContent = nextCommand;
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        const offset = event.key === 'ArrowRight' ? 1 : -1;
+        const nextIndex = (index + offset + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        activateTab(tabs[nextIndex]);
+      });
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = commandEl.textContent?.trim();
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.classList.add('text-[#f5ee9b]');
+        setTimeout(() => copyBtn.classList.remove('text-[#f5ee9b]'), 900);
+      } catch {
+        // Clipboard permission may be blocked by browser settings.
+      }
+    });
+  });
+</script>
