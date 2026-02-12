@@ -1,10 +1,10 @@
 ---
 const installOptions = [
-  { id: 'clone', label: 'clone', command: 'git clone https://github.com/NOVA-ALLRounder/main.git' },
-  { id: 'setup', label: 'setup', command: 'cd main/core && cp .env.example .env' },
-  { id: 'build', label: 'build', command: 'cargo build --release' },
-  { id: 'test', label: 'test', command: 'cargo test' },
-  { id: 'release', label: 'release', command: './scripts/build_release.sh' },
+  { id: 'curl', label: 'curl', command: 'curl -L https://github.com/NOVA-ALLRounder/main/archive/refs/heads/main.tar.gz | tar -xz' },
+  { id: 'npm', label: 'npm', command: 'git clone https://github.com/NOVA-ALLRounder/main.git && cd main/web && npm install && npm run dev' },
+  { id: 'bun', label: 'bun', command: 'git clone https://github.com/NOVA-ALLRounder/main.git && cd main/web && bun install && bun run dev' },
+  { id: 'brew', label: 'brew', command: 'brew install rust && git clone https://github.com/NOVA-ALLRounder/main.git && cd main/core && cargo build --release' },
+  { id: 'paru', label: 'paru', command: 'paru -S rustup nodejs npm && git clone https://github.com/NOVA-ALLRounder/main.git' },
 ];
 ---
 
